@@ -1,4 +1,14 @@
+<!DOCTYPE html>
+<html>
+
 <h1>Book List</h1>
+
+<ul>
+<% all_books = Book.read %>
+<% all_books.each do |book| %>
+  <li><% book["title"] %> ( <% book["author"] %> ) </li>
+<% end %>
+</ul>
 
 <head>
 <style>
@@ -12,7 +22,7 @@ th {text-align:left;}
 </head>
 
 <body>
-<table style="width:300px">
+<table style="width:400px">
 
 <tr>
   <th>Title</th>
@@ -20,7 +30,7 @@ th {text-align:left;}
   </tr>
 
 <tr>
-  <td>Title 1</td>
+  <td>Title</td>
   <td>Author</td>
   </tr>
 </table>

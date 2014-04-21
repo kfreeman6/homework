@@ -3,21 +3,17 @@
 
 <title>Dice</title>
 
-<h1>Roll the Dice!</h1>
+<h1>Refresh to Roll the Dice!</h1>
 
 
-<script type="text/javascript">
-//return a random integer between 0 and 6
-document.write(Math.floor(Math.random() * 6) + 1)
+<% die1 = 1+rand(6) %>
 
-//return a second random integer between 0 and 6
-document.write(Math.floor(Math.random() * 6) + 1)
+<% die2 = 1+rand(6) %>
 
-</script>
 
-<img src="http://kiei925.com/images/dice/1.png" alt="Die1" width="200" height="200">
+<img src="http://kiei925.com/images/dice/<%= die1 %>.png" alt="Die1" width="200" height="200">
 
-<img src="http://kiei925.com/images/dice/1.png" alt="Die2" width="200" height="200">
+<img src="http://kiei925.com/images/dice/<%= die2 %>.png" alt="Die2" width="200" height="200">
 
 </body>
 </html>
