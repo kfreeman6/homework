@@ -1,39 +1,27 @@
-<!DOCTYPE html>
-<html>
-
 <h1>Book List</h1>
 
-<ul>
-<% all_books = Book.read %>
-<% all_books.each do |book| %>
-  <li><% book["title"] %> ( <% book["author"] %> ) </li>
-<% end %>
-</ul>
 
 <head>
 <style>
 table,th,td
 {border:1px solid black;
 border-collapse:collapse;}
-th,td {padding:5px;}
-th {text-align:left;}
 </style>
-</head>
 </head>
 
 <body>
-<table style="width:400px">
 
-<tr>
-  <th>Title</th>
-  <th>Author</th>
+<table style="width:500px">
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
   </tr>
-
-<tr>
-  <td>Title</td>
-  <td>Author</td>
+<% all_books = Book.read %>
+<% all_books.each do |book| %>
+  <tr>
+    <td> <%= book["title"] %></td>
+    <td><%= book["author"] %></td>
   </tr>
+<% end %>
 </table>
 </body>
-
-</html>
