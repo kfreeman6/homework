@@ -14,13 +14,16 @@ border-collapse:collapse;}
 <table style="width:500px">
   <tr>
     <th>Title</th>
-    <th>Author</th>
+    <th>Star Rating</th>
   </tr>
-<% all_books = Book.read %>
-<% all_books.each do |book| %>
+<% books = Book.read %>
+<% books.each do |book| %>
   <tr>
-    <td> <%= book["title"] %></td>
-    <td><%= book["author"] %></td>
+    <td> <%= book["book_title"] %></td>
+
+
+    <td> to do - star rating </td>
+
   </tr>
 <% end %>
 </table>

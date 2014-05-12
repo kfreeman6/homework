@@ -1,5 +1,5 @@
 Homework::Application.routes.draw do
-  get '/dice/roll' => 'dice/roll'
-  get '/books/list' => 'books/list'
+  get '/dice/roll'
+  get '/books' => 'books/list'
 
 end
