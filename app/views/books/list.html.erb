@@ -1,5 +1,6 @@
 <h1>Book List</h1>
 
+<h2> Editor's Pick: PLACEHOLDER</h2>
 
 <head>
 <style>
@@ -16,13 +17,22 @@ border-collapse:collapse;}
     <th>Title</th>
     <th>Star Rating</th>
   </tr>
-<% books = Book.read %>
-<% books.each do |book| %>
+<% the_book = Book.read %>
+<% the_book.each do |book| %>
+
   <tr>
-    <td> <%= book["book_title"] %></td>
+    <td> <%= link_to book["book_title"], "books/#{book["id"]}" %> </td>
+
+<% the_rating = Review.where("book_title" => book["book_title"]) %>
 
 
-    <td> to do - star rating </td>
+    <td>
+    <% if the_rating.average("star_rating") == nil then %>
+    <em> <%= "No ratings."  %> </em>
+     <% else %>
+     <%= the_rating.average("star_rating").round(1) %>
+     <% end %>
+     </td>
 
   </tr>
 <% end %>

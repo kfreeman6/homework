@@ -1,0 +1,40 @@
+<% book_id = params["id"] %>
+<% the_book = Book.read(book_id) %>
+<% the_rating = Review.where("book_title" => the_book["book_title"]) %>
+
+
+<h1><%= the_book["book_title"] %></h1>
+
+<p><strong>Author:</strong> <%=the_book["author"] %></p>
+
+<p><strong>Price:</strong> <%=the_book["price"] %></p>
+
+
+<p><strong>Average Star Rating:</strong>
+
+    <% if the_rating.average("star_rating") == nil then %>
+      <em> <%= "No ratings."  %> </em>
+      <% else %>
+      <%= the_rating.average("star_rating").round(1) %>
+    <% end %>
+
+</p>
+
+<p><strong>Reviews:</strong> </p>
+
+<ul>
+
+<% the_rating.each do |rating| %>
+
+  <li>
+  <%= rating["review"] %>
+  </li>
+
+  <% end %>
+
+</ul>
+
+
+
+<hr>
+<p> <%= link_to "Go Back", "/books" %> </p>
