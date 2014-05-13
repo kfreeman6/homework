@@ -1,6 +1,8 @@
 <h1>Book List</h1>
 
-<h2> Editor's Pick: EFFIN PLACEHOLDER </h2>
+<% edpick= Book.order("rating desc").first %>
+
+<h2> Editor's Pick: <%= link_to edpick["book_title"], "books/#{edpick["id"]}" %> </h2>
 
 <head>
 <style>
@@ -36,5 +38,6 @@ border-collapse:collapse;}
 
   </tr>
 <% end %>
+
 </table>
 </body>

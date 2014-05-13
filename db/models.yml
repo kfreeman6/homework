@@ -2,11 +2,13 @@ Book:
   - book_title: string
   - author: string
   - price: integer
+  - rating: float
 
 Review:
  - book_title: string
- - star_rating: integer
+ - star_rating: float
  - review: text
+ - book_id: integer
 
 # Example table for a typical Book model.
 #
